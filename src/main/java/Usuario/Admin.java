@@ -1,6 +1,6 @@
 package Usuario;
 
-import Refugio.Duenio;
+import Animal.Duenio;
 
 public class Admin extends Usuario {
 
