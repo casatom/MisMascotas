@@ -11,7 +11,7 @@ public class ConDuenio extends EstadoAnimal {
 
   @Override
   public boolean validarCambio() {
-    //TODO VALIDAR LOS CAMBIOS
+    //TODO Testear estas validaciones
     if(this.getAnimal().getEstado().getClass() == EnBusqueda.class){
       //Si se pasa de en busqueda se fija que no este todavia publicado
       return !RepositorioAnimalesEnBusqueda.getInstance().isEnBusqueda(this.getAnimal());

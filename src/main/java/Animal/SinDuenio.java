@@ -14,7 +14,7 @@ public class SinDuenio extends EstadoAnimal {
 
   @Override
   public boolean validarCambio() {
-    //TODO VALIDAR LOS CAMBIOS
+    //TODO testear estas validaciones
 
     if(this.getAnimal().getEstado().getClass() == this.getClass()){
       return true;

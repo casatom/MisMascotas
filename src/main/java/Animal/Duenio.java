@@ -37,7 +37,7 @@ public class Duenio {
   }
 
   public void registrarMascota(String nombre){
-    //TODO crear animal y asignarlo
+    //TODO testear
     Animal animal = new Animal(nombre);
     if(animal.establecerDuenio(this)){
       this.mascotas.add(animal);
