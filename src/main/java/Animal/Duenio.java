@@ -24,6 +24,9 @@ public class Duenio {
     this.mascotas = new ArrayList<>();
   }
 
+  public Boolean esValidoParaAdoptar() {
+    return esValidoParaAdoptar;
+  }
 
   public void adoptarMascota(Animal animal){
     if(this.esValidoParaAdoptar){
@@ -35,8 +38,11 @@ public class Duenio {
 
   public void registrarMascota(String nombre){
     //TODO crear animal y asignarlo
-    Animal animal = new Animal(nombre,null);
-    animal.setDuenio(this);
-    this.mascotas.add(animal);
+    Animal animal = new Animal(nombre);
+    if(animal.establecerDuenio(this)){
+      this.mascotas.add(animal);
+    }
+    else
+      throw new DuenioNoPuedeAdoptar("No esta validado o la mascota no puede cambiar de estado");
   }
 }

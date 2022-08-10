@@ -1,6 +1,5 @@
 package Animal;
 
-import Animal.Animal;
 
 public abstract class EstadoAnimal {
 
@@ -10,5 +9,13 @@ public abstract class EstadoAnimal {
     this.animal = animal;
   }
 
-  public abstract void validarCambio();
+  public Animal getAnimal() {
+    return animal;
+  }
+
+  public void setAnimal(Animal animal) {
+    this.animal = animal;
+  }
+
+  public abstract boolean validarCambio();
 }

@@ -7,10 +7,19 @@ public class SinDuenio extends EstadoAnimal {
 
   public SinDuenio(Animal animal) {
     super(animal);
+    if(validarCambio()){
+      this.getAnimal().publicarAnimalEnAdopcion();
+    }
   }
 
   @Override
-  public void validarCambio() {
+  public boolean validarCambio() {
     //TODO VALIDAR LOS CAMBIOS
+
+    if(this.getAnimal().getEstado().getClass() == this.getClass()){
+      return true;
+    }
+    //Si viene de un estado EnBusqueda o ConDuenio no es posible
+    return false;
   }
 }

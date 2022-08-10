@@ -1,6 +1,8 @@
 package Animal;
 
 import Refugio.Consulta;
+import Refugio.RepositorioAnimalesEnBusqueda;
+import Refugio.RepositorioAnimalesSinDuenio;
 
 import java.util.ArrayList;
 
@@ -11,9 +13,9 @@ public class Animal {
   private ArrayList<Consulta> consultas;
   private Dieta tipoDieta;
 
-  public Animal(String nombre, EstadoAnimal estado) {
+  public Animal(String nombre) {
     this.nombre = nombre;
-    this.estado = estado;
+    this.estado = new SinDuenio(this);
     this.consultas = new ArrayList<>();
     this.duenio = null;
     this.tipoDieta = null;
@@ -32,15 +34,33 @@ public class Animal {
   }
 
   //Cada estado manejara el cambio y su validacion
-  public void cambiarEstado(EstadoAnimal estado){
-    this.estado = estado;
+  public boolean cambiarEstado(EstadoAnimal estado){
+    if(estado.validarCambio()){
+      this.estado = estado;
+      return true;
+    }
+    return false;
   }
 
   public EstadoAnimal getEstado(){
     return this.estado;
   }
 
-  public void establecerDuenio(Duenio duenio){
-    this.duenio = duenio;
+  public boolean establecerDuenio(Duenio duenio){
+    if(duenio.esValidoParaAdoptar()){
+      if(cambiarEstado(new ConDuenio(this))){
+        this.duenio = duenio;
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public void publicarExtravio(){
+    RepositorioAnimalesEnBusqueda.getInstance().agregarAnimalEnBusqueda(this);
+  }
+
+  public void publicarAnimalEnAdopcion(){
+    RepositorioAnimalesSinDuenio.getInstance().agregarAnimalSinDuenio(this);
   }
 }
