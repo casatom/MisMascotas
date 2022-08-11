@@ -8,7 +8,12 @@ public class RefugioDePerros extends Refugio{
 
   private Set<Perro> perros;
 
+  public RefugioDePerros(String direccion) {
+    super(direccion);
+  }
+
   public void agregarPerro(Perro perro){
+    perro.subcribirAunRefugio(this);
     this.perros.add(perro);
   }
 

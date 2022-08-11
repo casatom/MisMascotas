@@ -36,9 +36,9 @@ public class Duenio {
       throw new DuenioNoPuedeAdoptar("no esta validado para adoptar");
   }
 
-  public void registrarMascota(String nombre){
+  public void registrarMascota(String nombre, TipoAnimales tipoAnimales){
     //TODO testear
-    Animal animal = new Animal(nombre);
+    Animal animal = Animal.createAnimal(tipoAnimales,nombre);
     if(animal.establecerDuenio(this)){
       this.mascotas.add(animal);
     }

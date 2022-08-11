@@ -12,6 +12,8 @@ public class DietaLigera extends Dieta{
   @Override
   public String getAlimentacion() {
     //TODO Llenar dieta Ligera
-    return "";
+    //Esta configuracion de la dieta podria ser guardada en la DB
+    String alimentacionLigera = "La dieta Ligera contiene\n";
+    return alimentacionLigera + this.getObservacion();
   }
 }

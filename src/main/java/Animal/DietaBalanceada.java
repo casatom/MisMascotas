@@ -12,6 +12,8 @@ public class DietaBalanceada extends Dieta{
   @Override
   public String getAlimentacion() {
     //TODO llenar alimnetacion Balanceada
-    return "";
+    //Esta configuracion de la dieta podria ser guardada en la DB
+    String alimentacionBalanceda = "La dieta Balanceada contiene\n";
+    return alimentacionBalanceda + this.getObservacion();
   }
 }
