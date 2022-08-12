@@ -18,7 +18,6 @@ public class Veterinario {
   }
 
   public Consulta darConsulta(Animal animal, Dieta dieta, String observacionConsulta){
-    //TODO dar consulta
     Consulta consulta = new Consulta(this, animal, dieta, observacionConsulta);
     this.consultas.add(consulta);
     return consulta;

@@ -6,8 +6,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class RepositorioAnimalesSinDuenio {
-  //TODO Singletone
-
   //////////////////////////////////  VARIABLES
   private static RepositorioAnimalesSinDuenio instance = null;
   private Set<Animal> animalesPublicados;

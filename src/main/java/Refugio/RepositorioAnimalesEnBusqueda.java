@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class RepositorioAnimalesEnBusqueda {
-  //TODO Singletone
   //////////////////////////////////  VARIABLES
   private static RepositorioAnimalesEnBusqueda instance = null;
   private Set<Animal> animalesEnBusqueda;

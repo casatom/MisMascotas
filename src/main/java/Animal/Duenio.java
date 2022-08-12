@@ -14,18 +14,22 @@ public class Duenio {
   private Boolean esValidoParaAdoptar;
   private Usuario usuario;
 
-  public Duenio(String nombreCompleto, int numeroDocumento, TipoDocumento tipoDocumento, String direccion, Usuario usuario, Boolean esValidoParaAdoptar) {
+  public Duenio(String nombreCompleto, int numeroDocumento, TipoDocumento tipoDocumento, String direccion, Usuario usuario) {
     this.nombreCompleto = nombreCompleto;
     this.numeroDocumento = numeroDocumento;
     this.tipoDocumento = tipoDocumento;
     this.direccion = direccion;
     this.usuario = usuario;
-    this.esValidoParaAdoptar = esValidoParaAdoptar;
+    this.esValidoParaAdoptar = false;
     this.mascotas = new ArrayList<>();
   }
 
   public Boolean esValidoParaAdoptar() {
     return esValidoParaAdoptar;
+  }
+
+  public void setEsValidoParaAdoptar(Boolean esValidoParaAdoptar) {
+    this.esValidoParaAdoptar = esValidoParaAdoptar;
   }
 
   public void adoptarMascota(Animal animal){

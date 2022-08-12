@@ -1,6 +1,7 @@
 package Usuario;
 
 import Usuario.Excepciones.ContraseniaEsInvalidaException;
+import Usuario.Excepciones.UsuarioEnDbException;
 import Usuario.Excepciones.UsuarioException;
 
 import java.util.ArrayList;
@@ -50,7 +51,7 @@ public class RepositorioUsuarios {
     return true;
   }
 
-  public Usuario validarLogueoUsuario(String username, String contra){
+  public Usuario accesoAlSistema(String username, String contra){
     Usuario usuarioConUsername = this.usuarios.stream().filter(u-> u.getUsername().equals(username)).findFirst().orElse(null);
     //Si no encuentra el usuario por username
     if(usuarioConUsername == null){
@@ -68,13 +69,28 @@ public class RepositorioUsuarios {
     throw new ContraseniaEsInvalidaException("la contrasenia no es la misma a la del usuario");
   }
 
-  public Usuario crearUsuario(String username, String email, String contra, boolean validado){
+  public Usuario crearUsuario(String username, String email, String contra){
     try{
-      Usuario usuarioNuevo = new Usuario(username,email,contra,validado);
-      this.usuarios.add(usuarioNuevo);
+      Usuario usuarioNuevo = new Usuario(username,email,contra,false);
+      //agregarUsuario(usuarioNuevo);
       return usuarioNuevo;
     }catch (UsuarioException e){
       return null;
+    }
+  }
+
+  private Usuario usuarioYaCreado(Usuario usuario){
+    if(this.usuarios.stream().filter(u -> u.getUsername().equals(usuario.getUsername())).findFirst().orElse(null) ==null){
+      return null;
+    }
+    else
+      throw new UsuarioEnDbException("El username ya existe");
+
+  }
+
+  public void agregarUsuario(Usuario usuario){
+    if(usuarioYaCreado(usuario)==null){
+      this.usuarios.add(usuario);
     }
   }
 

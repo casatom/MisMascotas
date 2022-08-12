@@ -16,8 +16,7 @@ public class Admin extends Usuario {
     return RepositorioUsuarios.getInstance().validarUsuario(username,validacion);
   }
 
-  public void validarDuenio(Duenio duenio, boolean validacion){
-    //TODO Validar Duenio
-
+  public void validarDuenio(Duenio duenio, boolean validado){
+    duenio.setEsValidoParaAdoptar(validado);
   }
 }

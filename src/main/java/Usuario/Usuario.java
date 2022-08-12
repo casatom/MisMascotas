@@ -26,6 +26,8 @@ public class Usuario {
     this.contraHasheada = generateHash(contra);
     this.username = username;
     this.mail = email;
+
+    RepositorioUsuarios.getInstance().agregarUsuario(this);
   }
 
   //////////////////////////////////  GETTERS

@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class RepositoRefugios {
-  //TODO Singletone
   //////////////////////////////////  VARIABLES
   private String nombre;
   private static RepositoRefugios instance = null;
@@ -24,6 +23,10 @@ public class RepositoRefugios {
       instance = new RepositoRefugios();
     }
     return instance;
+  }
+
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
   }
 
   public void guardarRefugio(Refugio refugio){
