@@ -55,6 +55,11 @@ public class Duenio {
       throw new DuenioNoPuedeAdoptar("no esta validado para adoptar");
   }
 
+
+  public Animal getAnimalPerdido(String nombreAnimal){
+    return this.mascotas.stream().filter(m -> m.getNombre().equals(nombreAnimal)).findFirst().orElse(null);
+  }
+
   public void registrarMascota(String nombre, TipoAnimales tipoAnimales){
     //TODO testear
     Animal animal = Animal.createAnimal(tipoAnimales,nombre);

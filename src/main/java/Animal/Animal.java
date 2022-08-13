@@ -19,7 +19,7 @@ public abstract class Animal {
 
   protected Animal(String nombre) {
     this.nombre = nombre;
-    this.estado = new SinDuenio(this);
+    this.estado = null;
     this.consultas = new ArrayList<>();
     this.duenio = null;
     this.tipoDieta = null;
@@ -31,6 +31,10 @@ public abstract class Animal {
       this.refugioRelacionado = refugio;
     else
       throw new YaSubcriptoException("ya pertence al local con direccion " + this.refugioRelacionado.getDireccion()+ " que es un " +this.refugioRelacionado.getClass());
+  }
+
+  public String getNombre() {
+    return nombre;
   }
 
   public Refugio getRefugioRelacionado() {

@@ -11,6 +11,9 @@ public class EnBusqueda extends EstadoAnimal {
   @Override
   public boolean validarCambio() {
     //TODO testear esta validaciones
+    if(this.getAnimal().getEstado() == null){
+      return true;
+    }
     if(this.getAnimal().getEstado().getClass() == ConDuenio.class){
       return true;
     }

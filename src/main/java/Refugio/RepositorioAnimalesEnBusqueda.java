@@ -2,7 +2,9 @@ package Refugio;
 
 import Animal.Animal;
 import Animal.ConDuenio;
+import Animal.Duenio;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,6 +32,7 @@ public class RepositorioAnimalesEnBusqueda {
       this.animalesEnBusqueda.remove(animal);
     }
   }
+
 
   public void agregarAnimalEnBusqueda(Animal animal){
     this.animalesEnBusqueda.add(animal);
