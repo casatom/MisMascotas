@@ -33,12 +33,13 @@ public class Rescatista {
     }
 
     if(RepositorioAnimalesEnBusqueda.getInstance().isEnBusqueda(animalPerdido)){
-      RepositorioAnimalesEnBusqueda.getInstance().animalEncontrado(animalPerdido);
-      animalPerdido.cambiarEstado(new ConDuenio(animalEncontrado));
+      animalPerdido.cambiarEstado(new ConDuenio(animalPerdido));
     }
+
     if(RepositorioAnimalesSinDuenio.getInstance().isPublicado(animalEncontrado)){
       RepositorioAnimalesSinDuenio.getInstance().eliminarAnimalPublicado(animalEncontrado);
     }
+
   }
 
   public void getLugaresDeBusqueda(int cantidadLugares){

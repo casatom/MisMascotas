@@ -64,16 +64,17 @@ public abstract class Animal {
 
   public static Animal createAnimal(TipoAnimales tipoAnimal, String nombre){
     if(tipoAnimal==TipoAnimales.GATO){
-      return new Gato(nombre);
+      return Gato.createAnimal(nombre);
     }
     if(tipoAnimal==TipoAnimales.PERRO){
-      return new Perro(nombre);
+      return Perro.createAnimal(nombre);
     }
     if(tipoAnimal==TipoAnimales.EXOTICO){
-      return new AnimalExotico(nombre);
+      return AnimalExotico.createAnimal(nombre);
     }
     throw new AnimalNoCreadoException("No se lleno con un tipo de animal correcto");
   }
+
 
   public EstadoAnimal getEstado(){
     return this.estado;

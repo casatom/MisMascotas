@@ -49,7 +49,9 @@ public class Duenio {
 
   public void adoptarMascota(Animal animal){
     if(this.esValidoParaAdoptar){
-      this.mascotas.add(animal);
+      if(animal.establecerDuenio(this)){
+        this.mascotas.add(animal);
+      }
     }
     else
       throw new DuenioNoPuedeAdoptar("no esta validado para adoptar");

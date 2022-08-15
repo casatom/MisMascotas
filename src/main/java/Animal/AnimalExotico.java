@@ -1,7 +1,11 @@
 package Animal;
 
 public class AnimalExotico extends Animal {
-  protected AnimalExotico(String nombre) {
+  private AnimalExotico(String nombre) {
     super(nombre);
+  }
+
+  public static Animal createAnimal(String nombre){
+    return new AnimalExotico(nombre);
   }
 }

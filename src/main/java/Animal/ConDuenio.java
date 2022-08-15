@@ -17,11 +17,15 @@ public class ConDuenio extends EstadoAnimal {
     }
     if(this.getAnimal().getEstado().getClass() == EnBusqueda.class){
       //Si se pasa de en busqueda se fija que no este todavia publicado
-      return !RepositorioAnimalesEnBusqueda.getInstance().isEnBusqueda(this.getAnimal());
+      if(RepositorioAnimalesEnBusqueda.getInstance().isEnBusqueda(this.getAnimal())){
+        RepositorioAnimalesEnBusqueda.getInstance().animalEncontrado(this.getAnimal());
+      }
     }
     if(this.getAnimal().getEstado().getClass() == SinDuenio.class){
       //Si se pasa de sin duenio se fija que no este todavia publicado
-      return !RepositorioAnimalesSinDuenio.getInstance().isPublicado(this.getAnimal());
+      if(RepositorioAnimalesSinDuenio.getInstance().isPublicado(this.getAnimal())){
+        RepositorioAnimalesSinDuenio.getInstance().eliminarAnimalPublicado(this.getAnimal());
+      }
     }
     return true;
   }

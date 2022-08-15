@@ -1,9 +1,12 @@
 package Animal;
 
-import Animal.Animal;
 
 public class Perro extends Animal {
-  protected Perro(String nombre) {
+  private Perro(String nombre) {
     super(nombre);
+  }
+
+  public static Animal createAnimal(String nombre){
+    return new Perro(nombre);
   }
 }

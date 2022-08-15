@@ -8,11 +8,15 @@ public class RefugioAnimalesExoticos extends Refugio{
 
   private Set<AnimalExotico> animalExoticos;
 
-  public RefugioAnimalesExoticos(String direccion) {
+  private RefugioAnimalesExoticos(String direccion) {
     super(direccion);
   }
 
-  public void agregarAnimalExotico(AnimalExotico animalExotico){
+  public static Refugio createRefugio(String direccion) {
+    return new RefugioAnimalesExoticos(direccion);
+  }
+
+  public void agregarAnimal(AnimalExotico animalExotico){
     animalExotico.subcribirAunRefugio(this);
     this.animalExoticos.add(animalExotico);
   }

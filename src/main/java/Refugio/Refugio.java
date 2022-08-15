@@ -1,6 +1,5 @@
 package Refugio;
 
-import Animal.Animal;
 import Animal.Duenio;
 import Refugio.Exception.CreacionRefugioException;
 
@@ -28,16 +27,18 @@ public abstract class Refugio {
 
   public static Refugio createRefugio(String direccion, TipoRefugios tipoRefugio){
     if(tipoRefugio == TipoRefugios.EXOTICOS){
-      return new RefugioAnimalesExoticos(direccion);
+      return RefugioAnimalesExoticos.createRefugio(direccion);
     }
     if(tipoRefugio == TipoRefugios.GATOS){
-      return new RefugioDeGatos(direccion);
+      return RefugioDeGatos.createRefugio(direccion);
     }
     if(tipoRefugio == TipoRefugios.PERROS){
-      return new RefugioDePerros(direccion);
+      return RefugioDePerros.createRefugio(direccion);
     }
     throw new CreacionRefugioException("no se lleno el tipo de refugio con un tipo correcto");
   }
+
+
 
   public void agregarRescatista(Rescatista rescatista){
     this.rescatistas.add(rescatista);
