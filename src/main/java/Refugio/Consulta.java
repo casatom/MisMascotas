@@ -19,6 +19,8 @@ public class Consulta {
     this.animal = animal;
     this.dietaRecomendada = dietaRecomendada;
     this.observacion = observacion;
+
+    guardarConsulta();
   }
 
   public void setFechaConsulta(LocalDate fechaConsulta) {
