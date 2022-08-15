@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-08-2022 a las 08:19:02
+-- Tiempo de generación: 16-08-2022 a las 00:16:44
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -20,11 +20,15 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bd_mismascotas`
 --
+CREATE DATABASE IF NOT EXISTS `bd_mismascotas` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bd_mismascotas`;
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `animal`
+--
+-- Creación: 15-08-2022 a las 22:10:40
 --
 
 CREATE TABLE `animal` (
@@ -42,6 +46,8 @@ CREATE TABLE `animal` (
 --
 -- Estructura de tabla para la tabla `consulta`
 --
+-- Creación: 15-08-2022 a las 22:10:40
+--
 
 CREATE TABLE `consulta` (
   `id_consulta` int(100) NOT NULL,
@@ -57,6 +63,8 @@ CREATE TABLE `consulta` (
 --
 -- Estructura de tabla para la tabla `dieta`
 --
+-- Creación: 15-08-2022 a las 22:10:40
+--
 
 CREATE TABLE `dieta` (
   `id_dieta` int(100) NOT NULL,
@@ -69,6 +77,8 @@ CREATE TABLE `dieta` (
 
 --
 -- Estructura de tabla para la tabla `dueño`
+--
+-- Creación: 15-08-2022 a las 22:10:40
 --
 
 CREATE TABLE `dueño` (
@@ -86,6 +96,8 @@ CREATE TABLE `dueño` (
 --
 -- Estructura de tabla para la tabla `lugar`
 --
+-- Creación: 15-08-2022 a las 22:10:40
+--
 
 CREATE TABLE `lugar` (
   `id_lugar` int(100) NOT NULL,
@@ -97,6 +109,8 @@ CREATE TABLE `lugar` (
 
 --
 -- Estructura de tabla para la tabla `refugio`
+--
+-- Creación: 15-08-2022 a las 22:10:40
 --
 
 CREATE TABLE `refugio` (
@@ -110,6 +124,8 @@ CREATE TABLE `refugio` (
 --
 -- Estructura de tabla para la tabla `refugioxdueño`
 --
+-- Creación: 15-08-2022 a las 22:10:40
+--
 
 CREATE TABLE `refugioxdueño` (
   `id_refugio` int(100) NOT NULL,
@@ -122,6 +138,8 @@ CREATE TABLE `refugioxdueño` (
 --
 -- Estructura de tabla para la tabla `rescatista`
 --
+-- Creación: 15-08-2022 a las 22:10:40
+--
 
 CREATE TABLE `rescatista` (
   `id_rescatista` int(100) NOT NULL,
@@ -133,6 +151,8 @@ CREATE TABLE `rescatista` (
 
 --
 -- Estructura de tabla para la tabla `usuario`
+--
+-- Creación: 15-08-2022 a las 22:10:40
 --
 
 CREATE TABLE `usuario` (
@@ -149,6 +169,8 @@ CREATE TABLE `usuario` (
 
 --
 -- Estructura de tabla para la tabla `veterinario`
+--
+-- Creación: 15-08-2022 a las 22:10:40
 --
 
 CREATE TABLE `veterinario` (
