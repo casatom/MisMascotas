@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Rescatista {
 
   private String nombre;
-  private ArrayList<String> listaLugares;
+  private ArrayList<Lugar> listaLugares;
 
   public Rescatista(String nombre) {
     this.nombre = nombre;
@@ -41,8 +41,9 @@ public class Rescatista {
     }
   }
 
-  public void lugaresDeExtravio(){
+  public void getLugaresDeBusqueda(int cantidadLugares){
     //TODO buscar en la API los lugares que figuran y llenar la lista
+    this.listaLugares.addAll(ApiMascotasEncontradas.getInstance().requestLugares(cantidadLugares));
 
   }
 
