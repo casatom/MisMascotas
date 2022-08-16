@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-08-2022 a las 00:16:44
+-- Tiempo de generación: 17-08-2022 a las 01:20:54
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -63,14 +63,15 @@ CREATE TABLE `consulta` (
 --
 -- Estructura de tabla para la tabla `dieta`
 --
--- Creación: 15-08-2022 a las 22:10:40
+-- Creación: 16-08-2022 a las 23:18:34
 --
 
 CREATE TABLE `dieta` (
   `id_dieta` int(100) NOT NULL,
   `observacionDieta` varchar(255) DEFAULT NULL,
   `id_animal` int(100) DEFAULT NULL,
-  `dietaRecomendada` enum('balanceada','ligera','deportiva') DEFAULT NULL
+  `dietaRecomendada` enum('balanceada','ligera','deportiva') DEFAULT NULL,
+  `id_consulta` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -207,7 +208,8 @@ ALTER TABLE `consulta`
 --
 ALTER TABLE `dieta`
   ADD PRIMARY KEY (`id_dieta`),
-  ADD KEY `animal_id_animal_dieta` (`id_animal`);
+  ADD KEY `animal_id_animal_dieta` (`id_animal`),
+  ADD KEY `consulta_id_consulta_dieta` (`id_consulta`);
 
 --
 -- Indices de la tabla `dueño`
@@ -281,7 +283,8 @@ ALTER TABLE `consulta`
 -- Filtros para la tabla `dieta`
 --
 ALTER TABLE `dieta`
-  ADD CONSTRAINT `animal_id_animal_dieta` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id_animal`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `animal_id_animal_dieta` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id_animal`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `consulta_id_consulta_dieta` FOREIGN KEY (`id_consulta`) REFERENCES `consulta` (`id_consulta`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `dueño`
