@@ -17,6 +17,7 @@ public class Duenio {
   private Boolean esValidoParaAdoptar;
   private Usuario usuario;
   private Set<Refugio> refugios;
+  private Number id;
 
   //TODO Agregar refugios al duenio
 
@@ -29,6 +30,18 @@ public class Duenio {
     this.esValidoParaAdoptar = false;
     this.mascotas = new ArrayList<>();
     this.refugios = new HashSet<>();
+  }
+
+  public Duenio(Number id) {
+    this.id = id;
+  }
+
+  public Number getId() {
+    return id;
+  }
+
+  public void setId(Number id) {
+    this.id = id;
   }
 
   public Boolean esValidoParaAdoptar() {
@@ -55,6 +68,30 @@ public class Duenio {
     }
     else
       throw new DuenioNoPuedeAdoptar("no esta validado para adoptar");
+  }
+
+  public String getNombreCompleto() {
+    return nombreCompleto;
+  }
+
+  public int getNumeroDocumento() {
+    return numeroDocumento;
+  }
+
+  public TipoDocumento getTipoDocumento() {
+    return tipoDocumento;
+  }
+
+  public String getDireccion() {
+    return direccion;
+  }
+
+  public Boolean getEsValidoParaAdoptar() {
+    return esValidoParaAdoptar;
+  }
+
+  public Usuario getUsuario() {
+    return usuario;
   }
 
   private void agregarAnimal(Animal animal) {

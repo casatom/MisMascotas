@@ -10,6 +10,8 @@ import Refugio.RepositorioAnimalesSinDuenio;
 import java.util.ArrayList;
 
 public abstract class Animal {
+
+  private Number id;
   private String nombre;
   private Duenio duenio;
   private EstadoAnimal estado;
@@ -24,6 +26,22 @@ public abstract class Animal {
     this.duenio = null;
     this.tipoDieta = null;
     this.refugioRelacionado = null;
+  }
+
+  public void setId(Number id) {
+    this.id = id;
+  }
+
+  public Number getId() {
+    return id;
+  }
+
+  public Duenio getDuenio() {
+    return duenio;
+  }
+
+  public Dieta getTipoDieta() {
+    return tipoDieta;
   }
 
   public void subcribirAunRefugio(Refugio refugio){

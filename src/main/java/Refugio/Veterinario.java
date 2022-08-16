@@ -10,6 +10,7 @@ public class Veterinario {
   private String nombreCompleto;
   private String cuit;
   private ArrayList<Consulta> consultas;
+  private Number id;
 
   public Veterinario(String nombreCompleto, String cuit) {
     this.nombreCompleto = nombreCompleto;
@@ -21,6 +22,14 @@ public class Veterinario {
     Consulta consulta = new Consulta(this, animal, dieta, observacionConsulta);
     this.consultas.add(consulta);
     return consulta;
+  }
+
+  public Number getId() {
+    return id;
+  }
+
+  public void setId(Number id) {
+    this.id = id;
   }
 
   public void setConsultas(ArrayList<Consulta> consultas) {

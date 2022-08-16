@@ -12,6 +12,7 @@ public class Consulta {
   private Animal animal;
   private Dieta dietaRecomendada;
   private String observacion;
+  private Number id;
 
   public Consulta(Veterinario veterinario, Animal animal, Dieta dietaRecomendada, String observacion) {
     this.fechaConsulta = LocalDate.now();
@@ -19,8 +20,38 @@ public class Consulta {
     this.animal = animal;
     this.dietaRecomendada = dietaRecomendada;
     this.observacion = observacion;
+  }
 
-    guardarConsulta();
+  public Consulta(Number id) {
+    this.id = id;
+  }
+
+  public Number getId() {
+    return id;
+  }
+
+  public LocalDate getFechaConsulta() {
+    return fechaConsulta;
+  }
+
+  public Veterinario getVeterinario() {
+    return veterinario;
+  }
+
+  public Animal getAnimal() {
+    return animal;
+  }
+
+  public Dieta getDietaRecomendada() {
+    return dietaRecomendada;
+  }
+
+  public String getObservacion() {
+    return observacion;
+  }
+
+  public void setId(Number id) {
+    this.id = id;
   }
 
   public void setFechaConsulta(LocalDate fechaConsulta) {

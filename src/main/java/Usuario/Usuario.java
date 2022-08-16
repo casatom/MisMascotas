@@ -14,6 +14,9 @@ public class Usuario {
   private final String salt = "+@351";
   private Boolean validado;
   private String contraHasheada;
+  private boolean esAdmin;
+  private Number id;
+
   private ArrayList<CriterioValidacion> validadoresContrasenia;
 
 
@@ -26,8 +29,29 @@ public class Usuario {
     this.contraHasheada = generateHash(contra);
     this.username = username;
     this.mail = email;
+    this.esAdmin = false;
 
     RepositorioUsuarios.getInstance().agregarUsuario(this);
+  }
+
+  public Usuario(Number id) {
+    this.id = id;
+  }
+
+  public String getSalt() {
+    return salt;
+  }
+
+  public Boolean getValidado() {
+    return validado;
+  }
+
+  public String getContraHasheada() {
+    return contraHasheada;
+  }
+
+  public Boolean isEsAdmin() {
+    return esAdmin;
   }
 
   //////////////////////////////////  GETTERS
@@ -57,6 +81,13 @@ public class Usuario {
     return this.contraHasheada.equals(contraHasheada);
   }
 
+  public Number getId() {
+    return id;
+  }
+
+  public void setId(Number id) {
+    this.id = id;
+  }
 
   private boolean isContraseniaValida(String contra){
 
@@ -74,6 +105,9 @@ public class Usuario {
     return true;
   }
 
+  public void setEsAdmin(boolean esAdmin) {
+    this.esAdmin = esAdmin;
+  }
 
   private String generateHash(String contrasenia) {
     MessageDigest digest;

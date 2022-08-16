@@ -12,6 +12,7 @@ public abstract class Refugio {
   private Set<Veterinario> veterinarios;
   private Set<Duenio> duenios;
   private String direccion;
+  private Number id;
 
   protected Refugio(String direccion) {
     this.direccion = direccion;
@@ -24,6 +25,14 @@ public abstract class Refugio {
     return direccion;
   }
 
+
+  public Number getId() {
+    return id;
+  }
+
+  public void setId(Number id) {
+    this.id = id;
+  }
 
   public static Refugio createRefugio(String direccion, TipoRefugios tipoRefugio){
     if(tipoRefugio == TipoRefugios.EXOTICOS){
