@@ -19,7 +19,6 @@ public class Duenio {
   private Set<Refugio> refugios;
   private Number id;
 
-  //TODO Agregar refugios al duenio
 
   public Duenio(String nombreCompleto, int numeroDocumento, TipoDocumento tipoDocumento, String direccion, Usuario usuario) {
     this.nombreCompleto = nombreCompleto;
@@ -60,15 +59,7 @@ public class Duenio {
     this.esValidoParaAdoptar = esValidoParaAdoptar;
   }
 
-  public void adoptarMascota(Animal animal){
-    if(this.esValidoParaAdoptar){
-      if(animal.establecerDuenio(this)){
-        agregarAnimal(animal);
-      }
-    }
-    else
-      throw new DuenioNoPuedeAdoptar("no esta validado para adoptar");
-  }
+
 
   public String getNombreCompleto() {
     return nombreCompleto;
@@ -94,8 +85,11 @@ public class Duenio {
     return usuario;
   }
 
-  private void agregarAnimal(Animal animal) {
+  private void agregarAnimal(Animal animal, Refugio refugio) {
     this.mascotas.add(animal);
+    refugio.agregarDuenio(this);
+    animal.subcribirAunRefugio(refugio);
+    this.agregarRefugio(refugio);
   }
 
   public void animalPerdido(Animal animal){
@@ -113,13 +107,24 @@ public class Duenio {
     return this.mascotas.stream().filter(m -> m.getNombre().equals(nombreAnimal)).findFirst().orElse(null);
   }
 
-  public void registrarMascota(String nombre, TipoAnimales tipoAnimales){
+  public void registrarMascota(String nombre, TipoAnimales tipoAnimales,Refugio refugio){
     //TODO testear
     Animal animal = Animal.createAnimal(tipoAnimales,nombre);
     if(animal.establecerDuenio(this)){
-      agregarAnimal(animal);
+      agregarAnimal(animal,refugio);
     }
     else
       throw new DuenioNoPuedeAdoptar("No esta validado o la mascota no puede cambiar de estado");
+  }
+
+  public void adoptarMascota(Animal animal, Refugio refugio){
+
+    if(this.esValidoParaAdoptar){
+      if(animal.establecerDuenio(this)){
+        agregarAnimal(animal,refugio);
+      }
+    }
+    else
+      throw new DuenioNoPuedeAdoptar("no esta validado para adoptar");
   }
 }

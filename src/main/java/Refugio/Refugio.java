@@ -58,7 +58,6 @@ public abstract class Refugio {
   }
 
   public void agregarDuenio(Duenio duenio){
-    duenio.agregarRefugio(this);
     this.duenios.add(duenio);
   }
 

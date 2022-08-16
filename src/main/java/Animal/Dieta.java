@@ -14,6 +14,11 @@ public abstract class Dieta {
     return id;
   }
 
+  public void setId(Number id) {
+    this.id = id;
+  }
+
+
   public String getObservacion() {
     return observacion;
   }

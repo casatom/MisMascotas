@@ -13,6 +13,7 @@ public class Rescatista {
 
   private String nombre;
   private ArrayList<Lugar> listaLugares;
+  private Number id;
 
   public Rescatista(String nombre) {
     this.nombre = nombre;
@@ -48,4 +49,11 @@ public class Rescatista {
 
   }
 
+  public Number getId() {
+    return id;
+  }
+
+  public void setId(Number id) {
+    this.id = id;
+  }
 }
