@@ -50,11 +50,25 @@ public class Duenio {
   public void adoptarMascota(Animal animal){
     if(this.esValidoParaAdoptar){
       if(animal.establecerDuenio(this)){
-        this.mascotas.add(animal);
+        agregarAnimal(animal);
       }
     }
     else
       throw new DuenioNoPuedeAdoptar("no esta validado para adoptar");
+  }
+
+  private void agregarAnimal(Animal animal) {
+    this.mascotas.add(animal);
+  }
+
+  public void animalPerdido(Animal animal){
+    if(esMascotaPropia(animal)){
+      animal.cambiarEstado(new EnBusqueda(animal));
+    }
+  }
+
+  private boolean esMascotaPropia(Animal animal) {
+    return this.mascotas.contains(animal);
   }
 
 
@@ -66,7 +80,7 @@ public class Duenio {
     //TODO testear
     Animal animal = Animal.createAnimal(tipoAnimales,nombre);
     if(animal.establecerDuenio(this)){
-      this.mascotas.add(animal);
+      agregarAnimal(animal);
     }
     else
       throw new DuenioNoPuedeAdoptar("No esta validado o la mascota no puede cambiar de estado");

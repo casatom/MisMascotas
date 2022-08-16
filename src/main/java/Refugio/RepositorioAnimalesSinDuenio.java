@@ -29,8 +29,9 @@ public class RepositorioAnimalesSinDuenio {
     this.animalesPublicados.add(animal);
   }
 
-  public void eliminarAnimalPublicado(Animal animal){
+  public boolean eliminarAnimalPublicado(Animal animal){
     this.animalesPublicados.remove(animal);
+    return true;
   }
 
   public boolean isPublicado(Animal animal){

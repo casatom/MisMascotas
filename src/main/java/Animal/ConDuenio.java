@@ -6,7 +6,6 @@ import Refugio.RepositorioAnimalesSinDuenio;
 public class ConDuenio extends EstadoAnimal {
   public ConDuenio(Animal animal) {
     super(animal);
-
   }
 
   @Override
