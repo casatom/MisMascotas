@@ -1,8 +1,6 @@
 package db;
 
-import Refugio.Lugar;
 import Refugio.Refugio;
-import Refugio.Rescatista;
 import Refugio.TipoRefugios;
 
 import java.sql.*;

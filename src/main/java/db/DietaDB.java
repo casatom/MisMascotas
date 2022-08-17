@@ -60,7 +60,7 @@ public class DietaDB {
       if(resultSet.getString("dietaRecomendada").equals("DietaBalanceada")){
         dietaDB = new DietaBalanceada();
       }
-      dieta.setId(resultSet.getInt("id_dieta"));
+      dietaDB.setId(resultSet.getInt("id_dieta"));
       return dietaDB;
     }
 

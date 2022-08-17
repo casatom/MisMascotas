@@ -32,6 +32,14 @@ public class Veterinario {
     this.id = id;
   }
 
+  public String getNombreCompleto() {
+    return nombreCompleto;
+  }
+
+  public String getCuit() {
+    return cuit;
+  }
+
   public void setConsultas(ArrayList<Consulta> consultas) {
     this.consultas = consultas;
   }

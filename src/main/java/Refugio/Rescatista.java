@@ -40,7 +40,10 @@ public class Rescatista {
     if(RepositorioAnimalesSinDuenio.getInstance().isPublicado(animalEncontrado)){
       RepositorioAnimalesSinDuenio.getInstance().eliminarAnimalPublicado(animalEncontrado);
     }
+  }
 
+  public String getNombre() {
+    return nombre;
   }
 
   public void getLugaresDeBusqueda(int cantidadLugares){
